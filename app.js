@@ -3,6 +3,7 @@ const router = require("./Src/Routes/api")
 const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
 //security middleware library import
 const rateLimit = require('express-rate-limit')
 const helemt = require('helmet');
@@ -17,8 +18,12 @@ app.use(helemt());
 app.use(xssClean());
 app.use(mongoSanitize());
 app.use(hpp());
-app.use(bodyParser.json({limit: '5mb'}));
-app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
+
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+
+// app.use(bodyParser.json({limit: '5mb'}));
+// app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
 	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
@@ -27,9 +32,6 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-//mongodb database connection by mongoose
-// const uri = "mongodb://127.0.0.1:27017/facebook"; 
-// const options = {user:"", pass:"", autoIndex:true};
 
 const uri="mongodb+srv://<username>:<password>@cluster0.fmftb.mongodb.net/task-manager?retryWrites=true&w=majority";
 const options = {

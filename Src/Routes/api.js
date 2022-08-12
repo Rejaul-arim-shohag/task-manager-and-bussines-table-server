@@ -9,10 +9,16 @@ router.get("/test", UserController.test)
 router.post("/registration", UserController.userRegistration);
 router.post("/login", UserController.login);
 router.post("/profileUpdate",authVerifyMiddleware, UserController.profileUpdate);
+router.get("/profileDetails",authVerifyMiddleware, UserController.profileDetails);
+router.get("/RecoverVerifyEmail/:email",UserController.RecoverVerifyEmail);
+router.get("/RecoverVerifyOTP/:email/:otp",UserController.RecoverVerifyOTP);
+router.post("/RecoverResetPass",UserController.RecoverResetPass);
+
+
 
 //task
 router.post("/createTask",authVerifyMiddleware, TaksController.createTask);
-router.get("/deleteTask",authVerifyMiddleware, TaksController.deleteTask);
+router.get("/deleteTask/:id",authVerifyMiddleware, TaksController.deleteTask);
 router.get("/updateTaskStatus/:id/:status",authVerifyMiddleware, TaksController.updateTaskStatus);
 router.get("/listsTaskByStatus/:status",authVerifyMiddleware, TaksController.listsTaskByStatus);
 router.get("/taskStatusCount",authVerifyMiddleware, TaksController.taskStatusCount);
