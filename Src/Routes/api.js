@@ -3,7 +3,10 @@ const router = express.Router();
 const authVerifyMiddleware = require('../middleware/AuthVerifyMiddleware')
 const UserController = require('../Controllers/UserController')
 const TaksController = require('../Controllers/TaskController')
+const ProductsController = require("../Controllers/ProductsController")
 
+//product table manage
+router.get("/ProductList/:pageNo/:perPage/:searchKeyword?",ProductsController.productList);
 //user 
 router.get("/test", UserController.test)
 router.post("/registration", UserController.userRegistration);
