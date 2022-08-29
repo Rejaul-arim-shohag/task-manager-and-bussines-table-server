@@ -33,7 +33,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 
-const uri="mongodb+srv://<username>:<password>@cluster0.fmftb.mongodb.net/task-manager?retryWrites=true&w=majority";
+const uri="mongodb+srv://<username>:<password>@cluster0.fmftb.mongodb.net/law-firm?retryWrites=true&w=majority";
 const options = {
     user:"crudUser",
     pass:"cKCvJBxPceRvqkmp",
@@ -48,7 +48,9 @@ mongoose.connect(uri,options, (err)=>{
     }
 });
 
-app.use("/api/v1", router);
+// app.use("/api/v1", router);
+
+
 //undefined router
 app.use("*", (req, res)=>{
     res.status(404).json({"status":"fail", "data":"undefined route and not found"})

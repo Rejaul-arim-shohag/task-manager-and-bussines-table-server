@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const UserModel = require ("../Models/userModel.js");
 const OTPModel = require ("../Models/OTPModel")
 var jwt = require('jsonwebtoken');
@@ -140,3 +141,5 @@ exports.RecoverResetPass=async (req,res)=>{
 }
 
 
+=======
+>>>>>>> 1929da2775bc74ada90e29c58cd1e053c167ad28

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require('express');
 const router = express.Router();
 const authVerifyMiddleware = require('../middleware/AuthVerifyMiddleware')
@@ -29,3 +30,5 @@ router.get("/taskStatusCount",authVerifyMiddleware, TaksController.taskStatusCou
 
 
 module.exports = router;
+=======
+>>>>>>> 1929da2775bc74ada90e29c58cd1e053c167ad28
